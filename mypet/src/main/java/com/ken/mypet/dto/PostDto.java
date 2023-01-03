@@ -10,6 +10,5 @@ public class PostDto {
     private String date;
     private String time;
     private Integer person_id;
-    
-    
+     
 }
