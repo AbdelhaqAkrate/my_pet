@@ -10,22 +10,14 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "offres")
-public class Offre {
+@Table(name = "images")
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "duration")
-    private Integer duration;
-    @Column(name = "price")
-    private double price;
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person personOffre;
+    @Column(name = "url")
+    private String url;
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    private Pet petOffre;
-    
-
-    
+    private Pet petImage;
 }

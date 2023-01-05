@@ -24,13 +24,18 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import java.util.Collections;
 
 @EnableWebSecurity
-@RequiredArgsConstructor
 @Configuration
 public class SecurityConfig {
-    @Autowired
     private final JwtFilter jwtFilter;
-    @Autowired
+
     private final PersonServiceImpl personService;
+
+    @Autowired
+    public SecurityConfig(JwtFilter jwtFilter, PersonServiceImpl personService) {
+        this.jwtFilter = jwtFilter;
+        this.personService = personService;
+    }
+
     @Bean
      public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -40,8 +45,8 @@ public class SecurityConfig {
                //secure urls without role
             .csrf().disable()
             .authorizeHttpRequests()
-            .requestMatchers("/login").permitAll()
-            .requestMatchers("/register").permitAll()
+            .requestMatchers("/auth/**").permitAll()
+            .requestMatchers("/test").permitAll()
            //.requestMatchers("**/admin/**").hasAnyAuthority("ADMIN")
             .anyRequest().authenticated()
             .and()

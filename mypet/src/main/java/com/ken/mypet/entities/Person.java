@@ -14,7 +14,7 @@ import lombok.*;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     @Column(name = "phone")
     private String phone;
     @Column(name = "address")
@@ -29,13 +29,13 @@ public class Person {
     private Integer num_pets;
     @OneToMany(mappedBy = "person")
     private List<Post> posts;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personComment")
     private List<Comment> comments;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personPet")
     private List<Pet> pets;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personReplay")
     private List<Replay> replays;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personOffre")
     private List<Offre> offres;
 
 

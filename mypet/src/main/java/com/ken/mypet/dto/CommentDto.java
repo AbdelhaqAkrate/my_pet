@@ -10,6 +10,5 @@ public class CommentDto {
     private String time;
     private Integer person_id;
     private Integer post_id;
-    
-    
+
 }

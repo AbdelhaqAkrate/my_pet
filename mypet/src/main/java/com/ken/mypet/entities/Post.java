@@ -15,7 +15,7 @@ import lombok.*;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     @Column(name = "title")
     private String title;
     @Column(name = "content")
@@ -27,7 +27,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "postComment")
     private List<Comment> comments;
    
     

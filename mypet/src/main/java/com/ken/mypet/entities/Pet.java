@@ -13,17 +13,19 @@ import lombok.*;
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     @Column(name = "age")
-    private Integer age;
+    private long age;
     @Column(name = "description")
     private String description;
     @Column(name = "image")
     private String image;
     @ManyToOne
     @JoinColumn(name = "person_id")
-    private Person person;
-    @OneToMany(mappedBy = "pet")
+    private Person personPet;
+    @OneToMany(mappedBy = "petOffre")
     private List<Offre> offres;
+    @OneToMany(mappedBy = "petImage")
+    private List<Image> images;
 
 }

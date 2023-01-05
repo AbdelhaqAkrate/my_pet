@@ -13,15 +13,17 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     private PersonRepository personRepository;
     
-        @Override
-        public Person login(String email, String password) {
-            System.out.println("getting person from service");
-            System.out.println("This is The Person: " + personRepository.login(email, password));
-            return personRepository.login(email, password);
-        }
         public Person findByEmail(String email){
             System.out.println("getting person from service");
             System.out.println("This is The Person with email is : " + personRepository.findByEmail(email));
             return personRepository.findByEmail(email);
+        }
+        public Person register(Person person){
+            System.out.println("registering person from service");
+            return personRepository.save(person);
+        }
+        public  Person findById(long id)
+        {
+            return personRepository.findById(Integer.parseInt(String.valueOf(id))).get();
         }
 }

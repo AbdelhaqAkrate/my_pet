@@ -16,7 +16,7 @@ import jakarta.persistence.Id;
 public class Replay {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     @Column(name = "replay")
     private String replay;
     @Column(name = "date")
@@ -25,7 +25,7 @@ public class Replay {
     private String time;
     @ManyToOne
     @JoinColumn(name = "person_id")
-    private Person person;
+    private Person personReplay;
     @ManyToOne
     @JoinColumn(name = "comment_id")
     private Comment comment;

@@ -15,7 +15,7 @@ import lombok.*;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     @Column(name = "comment")
     private String comment;
     @Column(name = "date")
@@ -24,10 +24,10 @@ public class Comment {
     private String time;
     @ManyToOne
     @JoinColumn(name = "person_id")
-    private Person person;
+    private Person personComment;
     @ManyToOne
     @JoinColumn(name = "post_id")
-    private Post post;
+    private Post postComment;
     @OneToMany(mappedBy = "comment")
     private List<Replay> replays;
     

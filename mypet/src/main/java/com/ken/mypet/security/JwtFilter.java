@@ -20,10 +20,17 @@ import java.io.IOException;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @Component
-@RequiredArgsConstructor
+
 public class JwtFilter extends OncePerRequestFilter {
     private final JwtHelper jwtHelper;
-    private final PersonServiceImpl personService;   
+    private final PersonServiceImpl personService;
+
+    @Autowired
+    public JwtFilter(JwtHelper jwtHelper, PersonServiceImpl personService) {
+        this.jwtHelper = jwtHelper;
+        this.personService = personService;
+    }
+
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,
@@ -33,8 +40,9 @@ public class JwtFilter extends OncePerRequestFilter {
         final String authHeader = request.getHeader(AUTHORIZATION);
         final String userEmail;
         final String jwtToken;
-
-        if(authHeader == null || !authHeader.startsWith("Bearer ")){
+        System.out.println("hello");
+        if(authHeader == null || !authHeader.startsWith("Bearer")){
+            System.out.println("in condition111");
             filterChain.doFilter(request, response);
             return;
         }
