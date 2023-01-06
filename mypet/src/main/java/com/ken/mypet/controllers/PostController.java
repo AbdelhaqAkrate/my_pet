@@ -27,11 +27,6 @@ public class PostController {
     @Autowired
     private PostService postService;
     private PersonService personService;
-    @Autowired
-    private final AuthenticationManager authenticationManager;
-    @Autowired
-    private final JwtHelper jwtHelper;
-    private UserDetails userDetails;
 
     //here is the date on string format
     String pattern = "dd/MM/yyyy";

@@ -18,8 +18,8 @@ public class Pet {
     private long age;
     @Column(name = "description")
     private String description;
-    @Column(name = "image")
-    private String image;
+    @Column(name = "name")
+    private String name;
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person personPet;
