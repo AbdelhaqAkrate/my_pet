@@ -4,7 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.*;
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,13 +19,14 @@ public class Offre {
     private Integer duration;
     @Column(name = "price")
     private double price;
+    @Column(name = "state")
+    private Integer state;
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person personOffre;
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
-    private Pet petOffre;
-    
+
+    @Column(name = "pet_owner")
+    private long pet_owner;
 
     
 }

@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class CommentDto {
-    private Integer id;
+    private long id;
     private String comment;
     private String date;
     private String time;
-    private Integer person_id;
-    private Integer post_id;
+    private long person_id;
+    private long post_id;
 
 }

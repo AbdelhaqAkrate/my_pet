@@ -2,10 +2,12 @@ package com.ken.mypet.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -24,6 +26,7 @@ public class Post {
     private String date;
     @Column(name = "time")
     private String time;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;

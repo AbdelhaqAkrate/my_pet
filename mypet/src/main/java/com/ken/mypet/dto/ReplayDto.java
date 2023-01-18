@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class ReplayDto {
-    private Integer id;
+    private long id;
     private String replay;
     private String date;
     private String time;
-    private Integer person_id;
-    private Integer comment_id;
+    private long person_id;
+    private long comment_id;
     
 }

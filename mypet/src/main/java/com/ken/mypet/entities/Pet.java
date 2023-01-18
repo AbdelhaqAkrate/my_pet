@@ -3,7 +3,6 @@ import java.util.List;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -23,8 +22,6 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person personPet;
-    @OneToMany(mappedBy = "petOffre")
-    private List<Offre> offres;
     @OneToMany(mappedBy = "petImage")
     private List<Image> images;
 

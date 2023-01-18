@@ -11,4 +11,5 @@ public interface PersonRepository extends CrudRepository<Person, Integer>{
     public Person login(String email, String password);
     @Query("SELECT p FROM Person p WHERE p.email = ?1")
     public Person findByEmail(String email);
+    
 }

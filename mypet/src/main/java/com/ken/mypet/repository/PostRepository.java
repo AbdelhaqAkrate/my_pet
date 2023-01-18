@@ -10,12 +10,13 @@ import com.ken.mypet.entities.Post;
 @Repository
 public interface PostRepository extends CrudRepository<Post, Integer> {
     @Query("SELECT p FROM Post p WHERE p.person.id = ?1")
-    public Iterable<Post> findByPersonId(Integer id);
+    public List<Post> findByPersonId(long id);
     @Query("DELETE FROM Post p WHERE p.id = ?1")
-    public void deleteById(long id);
+    public void deleteById(Long id);
     @Query("SELECT p FROM Post p WHERE p.id = ?1")
     public Post findById(long id);
     @Query("SELECT p FROM Post p")
     public List<Post> findAll();
+    
     
 }

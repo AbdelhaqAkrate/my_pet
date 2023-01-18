@@ -1,0 +1,48 @@
+<div app-navbar></div>
+
+<!-- component -->
+<!-- This is an example component -->
+
+<div class="h-full py-24">
+
+  <div class="border-b-2 block md:flex">
+
+    <div class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 bg-white shadow-md">
+      <div class="flex justify-between">
+        <span class="text-xl font-semibold block">{{ids}} Profile</span>
+      </div>
+
+      <span class="text-gray-600">This information is secret so be careful</span>
+      <!-- <div class="w-full p-8 mx-2 flex justify-center">
+        <img id="showImage" class="max-w-xs w-32 items-center border" src="https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200" alt="">
+        </div> -->
+    </div>
+
+    <div class="w-full md:w-3/5 p-8 bg-white lg:ml-4 shadow-md">
+
+      <div class="rounded  shadow p-6">
+        <form [formGroup]="formGroupProfil" (ngSubmit)="update(formGroupProfil)">
+        <div class="pb-6">
+          <label for="phone" class="font-semibold text-gray-700 block pb-1">Phone</label>
+          <div class="flex">
+            <input formControlName="phone"  id="phone" class="border-1  rounded-r px-4 py-2 w-full" type="text"  />
+          </div>
+        </div>
+        <div class="pb-4">
+          <label for="address" class="font-semibold text-gray-700 block pb-1">Address</label>
+          <input formControlName="address" id="address" class="border-1  rounded-r px-4 py-2 w-full" type="text" />
+          <span class="text-gray-600 pt-4 block opacity-70">Personal login information of your account</span>
+          <div class="pb-4 flex justify-end">
+            <button type="submit" class="-mt-8 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800">Edit</button>
+          </div>
+        </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+

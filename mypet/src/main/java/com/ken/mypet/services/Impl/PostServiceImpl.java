@@ -31,4 +31,7 @@ public class PostServiceImpl implements PostService {
     public List<Post> findByPersonId(Integer id) {
         return (List<Post>) postRepository.findByPersonId(id);
     }
+    public Post findById(long id) {
+        return postRepository.findById(id);
+    }
 }

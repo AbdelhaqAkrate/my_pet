@@ -4,7 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.*;
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

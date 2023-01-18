@@ -1,5 +1,7 @@
 package com.ken.mypet.dto;
 
+import java.util.List;
+
 import jakarta.persistence.criteria.CriteriaBuilder.In;
 import lombok.Data;
 
@@ -9,8 +11,7 @@ public class PetDto {
     private String name;
     private Integer age;
     private String description;
-    private String image;
     private Integer person_id;
-    private Integer offre_id;
-    private Integer image_id;
+    private List<String> images;
+    private Integer pet_id;
 }

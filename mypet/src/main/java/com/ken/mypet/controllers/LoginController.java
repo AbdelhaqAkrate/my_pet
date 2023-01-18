@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import com.ken.mypet.helpers.JwtHelper;
+import com.ken.mypet.request.personReq;
 import com.ken.mypet.services.PersonService;
 
 @RestController
@@ -50,17 +51,12 @@ public class LoginController {
                     new UsernamePasswordAuthenticationToken(person.getEmail(), person.getPassword()));
             userDetails = (UserDetails) authentication.getPrincipal();
             String token = jwtHelper.generateToken(userDetails);
-            //get is token expired
-            String isExpired = jwtHelper.extractExpiration(token).toString();
-            Date date = inputFormat.parse(isExpired);
-            String output = outputFormat.format(date);
-            System.out.println(output);
-
+            System.out.println("am still working now");
             long id = personService.findByEmail(person.getEmail()).getId();
             String name = personService.findByEmail(person.getEmail()).getName();
             LoginResponse loginResponse = new LoginResponse(id, name, token);
-            return ResponseEntity.ok(loginResponse);
-
+            System.out.println("yes am working");
+           return ResponseEntity.ok(loginResponse);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Login failed");
 
@@ -85,6 +81,17 @@ public class LoginController {
             return ResponseEntity.ok("User registered successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User registration failed");
+        }
+    }
+    @PostMapping("/update")
+    public ResponseEntity<?> update(@RequestBody personReq person) {
+        System.out.println("update");
+        
+        try {
+            personService.update(person.getId(), person);
+            return ResponseEntity.ok("User updated successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User update failed");
         }
     }
 

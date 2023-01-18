@@ -1,5 +1,6 @@
 package com.ken.mypet.response;
 
+import com.ken.mypet.dto.CommentDto;
 import lombok.*;
 
 @Data
